@@ -112,6 +112,7 @@ function sendTestEmail($test_user_email, $test_subject) {
 }
 
 
+
 function sendEmailAfterRegistration($user_email, $user_url) {
     $send_time = time() + 3600; //ONE HOUR FROM NOW;
     $body = setEmailBody($user_email, $user_url);
@@ -129,7 +130,13 @@ function sendEmailAfterRegistration($user_email, $user_url) {
 add_action('emailReminderHook', 'sendEmailAfterRegistration', 10, 2);
 
 
+
 function sendScheduledEmail($user_email, $subject, $body, $headers) {
-    wp_mail($user_email, $subject, $body, $headers);
+    $user = get_user_by('email', $user_email);
+    $isUserOnboarded =  get_user_meta($user->ID, 'is_user_onboarded', true);
+
+    if(!$isUserOnboarded){
+        wp_mail($user_email, $subject, $body, $headers);
+    }
 }
 add_action('send_email_event', 'sendScheduledEmail', 10, 4);
