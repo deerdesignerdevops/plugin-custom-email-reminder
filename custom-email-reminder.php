@@ -26,13 +26,6 @@ function setEmailBody($user_email, $user_url){
 			<p>Hi there, we are still waiting for your onboarding form, and without it, we're not able to assign a team to your account.</p>
             
             <p>Please login on the website and fill it out. As soon as you complete it, we'll create your profile and match you with a team (up to 1 business day).</p>
-			
-			<br><br>
-			<p style='font-family: Helvetica, Arial, sans-serif; font-size: 13px;line-height: 1.5em;'>For your first access use these credentials below:<br>
-			username: $user_email <br>
-			password: change_123
-			</p>
-			<br><br>
 
             <a rel='noopener' target='_blank' href='$user_url' style='background-color: #43b5a0; font-size: 15px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; text-decoration: none; padding: 10px 20px; color: #ffffff; border-radius: 50px; display: inline-block; mso-padding-alt: 0;'>
                 <!--[if mso]>
